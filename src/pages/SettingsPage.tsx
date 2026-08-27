@@ -8,7 +8,7 @@ function Toggle({ checked, onChange }: { checked: boolean; onChange: (v: boolean
   return (
     <button
       onClick={() => onChange(!checked)}
-      className={`relative h-6 w-11 shrink-0 rounded-full transition-colors ${checked ? 'bg-emerald-600' : 'bg-navy-200'}`}
+      className={`relative h-6 w-11 shrink-0 rounded-full transition-colors ${checked ? 'bg-emerald-600' : 'bg-navy-700'}`}
     >
       <span
         className={`absolute top-0.5 h-5 w-5 rounded-full bg-white shadow-soft transition-transform ${checked ? 'translate-x-5' : 'translate-x-0.5'}`}
@@ -30,38 +30,38 @@ export default function SettingsPage() {
 
       <Card className="mb-5">
         <div className="mb-4 flex items-center gap-2">
-          <User className="h-4 w-4 text-navy-400" />
+          <User className="h-4 w-4 text-navy-500" />
           <h2 className="text-sm font-bold uppercase tracking-wide text-navy-500">Account</h2>
         </div>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           <div>
             <label className="mb-1.5 block text-xs font-semibold text-navy-500">Full Name</label>
-            <input defaultValue="Abirami K" className="w-full rounded-xl border border-navy-200 px-3 py-2.5 text-sm outline-none focus:border-emerald-400" />
+            <input defaultValue="Abirami K" className="w-full rounded-xl border border-white/10 bg-navy-900 px-3 py-2.5 text-sm text-navy-100 outline-none focus:border-emerald-400" />
           </div>
           <div>
             <label className="mb-1.5 block text-xs font-semibold text-navy-500">Email</label>
-            <input defaultValue="abiramikarthick2k7@gmail.com" className="w-full rounded-xl border border-navy-200 px-3 py-2.5 text-sm outline-none focus:border-emerald-400" />
+            <input defaultValue="abiramikarthick2k7@gmail.com" className="w-full rounded-xl border border-white/10 bg-navy-900 px-3 py-2.5 text-sm text-navy-100 outline-none focus:border-emerald-400" />
           </div>
         </div>
       </Card>
 
       <Card className="mb-5">
         <div className="mb-4 flex items-center gap-2">
-          <Bell className="h-4 w-4 text-navy-400" />
+          <Bell className="h-4 w-4 text-navy-500" />
           <h2 className="text-sm font-bold uppercase tracking-wide text-navy-500">Notifications</h2>
         </div>
         <div className="space-y-4">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-sm font-medium text-navy-800">Critical greenwashing alerts</p>
-              <p className="text-xs text-navy-400">Get notified immediately for high-risk detections</p>
+              <p className="text-sm font-medium text-navy-100">Critical greenwashing alerts</p>
+              <p className="text-xs text-navy-500">Get notified immediately for high-risk detections</p>
             </div>
             <Toggle checked={criticalAlerts} onChange={setCriticalAlerts} />
           </div>
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-sm font-medium text-navy-800">Weekly digest</p>
-              <p className="text-xs text-navy-400">Summary of new evidence and score changes</p>
+              <p className="text-sm font-medium text-navy-100">Weekly digest</p>
+              <p className="text-xs text-navy-500">Summary of new evidence and score changes</p>
             </div>
             <Toggle checked={weeklyDigest} onChange={setWeeklyDigest} />
           </div>
@@ -70,13 +70,13 @@ export default function SettingsPage() {
 
       <Card className="mb-5">
         <div className="mb-4 flex items-center gap-2">
-          <Zap className="h-4 w-4 text-navy-400" />
+          <Zap className="h-4 w-4 text-navy-500" />
           <h2 className="text-sm font-bold uppercase tracking-wide text-navy-500">AI Analysis</h2>
         </div>
         <div className="flex items-center justify-between">
           <div>
-            <p className="text-sm font-medium text-navy-800">Automatic re-scan on new filings</p>
-            <p className="text-xs text-navy-400">Re-run the AI pipeline when a watched company files a new report</p>
+            <p className="text-sm font-medium text-navy-100">Automatic re-scan on new filings</p>
+            <p className="text-xs text-navy-500">Re-run the AI pipeline when a watched company files a new report</p>
           </div>
           <Toggle checked={autoRescan} onChange={setAutoRescan} />
         </div>
@@ -84,24 +84,24 @@ export default function SettingsPage() {
 
       <Card className="mb-5">
         <div className="mb-4 flex items-center gap-2">
-          <Database className="h-4 w-4 text-navy-400" />
+          <Database className="h-4 w-4 text-navy-500" />
           <h2 className="text-sm font-bold uppercase tracking-wide text-navy-500">Data Sources</h2>
         </div>
         <div className="flex items-center justify-between">
           <div>
-            <p className="text-sm font-medium text-navy-800">Share anonymized benchmarks</p>
-            <p className="text-xs text-navy-400">Contribute anonymized scores to industry benchmark averages</p>
+            <p className="text-sm font-medium text-navy-100">Share anonymized benchmarks</p>
+            <p className="text-xs text-navy-500">Contribute anonymized scores to industry benchmark averages</p>
           </div>
           <Toggle checked={publicBenchmarks} onChange={setPublicBenchmarks} />
         </div>
       </Card>
 
-      <Card className="mb-5 border-navy-200 bg-navy-50/50">
+      <Card className="mb-5 border-white/10 bg-navy-800/50">
         <div className="mb-2 flex items-center gap-2">
-          <Shield className="h-4 w-4 text-navy-400" />
+          <Shield className="h-4 w-4 text-navy-500" />
           <h2 className="text-sm font-bold uppercase tracking-wide text-navy-500">About This Prototype</h2>
         </div>
-        <p className="text-sm leading-relaxed text-navy-600">
+        <p className="text-sm leading-relaxed text-navy-500">
           GREENWATCH AI is a demonstration prototype. All company data, claims, evidence, and AI analysis shown are
           simulated for the purpose of this Project Innovation Challenge and do not represent real findings about the
           named companies.
@@ -110,7 +110,7 @@ export default function SettingsPage() {
 
       <button
         onClick={() => push({ kind: 'success', title: 'Settings saved', message: 'Your preferences have been updated.' })}
-        className="rounded-xl bg-gradient-to-r from-emerald-600 to-forest-700 px-5 py-2.5 text-sm font-semibold text-white shadow-soft hover:shadow-lift"
+        className="rounded-xl bg-gradient-to-r from-emerald-600 to-emerald-500 px-5 py-2.5 text-sm font-semibold text-white shadow-soft hover:shadow-lift"
       >
         Save Changes
       </button>

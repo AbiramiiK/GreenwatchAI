@@ -14,8 +14,8 @@ export default function ClaimsSection({ company, initialClaimId }: { company: Co
     <div>
       <div className="mb-4 flex items-center justify-between">
         <div>
-          <h2 className="text-lg font-bold text-navy-900">Claims vs Reality</h2>
-          <p className="text-sm text-navy-400">What {company.name} says, checked against verified evidence.</p>
+          <h2 className="text-lg font-bold text-white">Claims vs Reality</h2>
+          <p className="text-sm text-navy-500">What {company.name} says, checked against verified evidence.</p>
         </div>
         <AiTag label="AI Contradiction Detection" />
       </div>
@@ -29,10 +29,10 @@ export default function ClaimsSection({ company, initialClaimId }: { company: Co
             onClick={() => setOpenClaimId(claim.id)}
           >
             <div className="flex items-start justify-between gap-3">
-              <span className="text-xs font-bold uppercase tracking-wide text-navy-400">{claim.code}</span>
-              <ChevronRight className="h-4 w-4 shrink-0 text-navy-300" />
+              <span className="text-xs font-bold uppercase tracking-wide text-navy-500">{claim.code}</span>
+              <ChevronRight className="h-4 w-4 shrink-0 text-navy-500" />
             </div>
-            <p className="mt-2 text-sm font-semibold leading-snug text-navy-900">&ldquo;{claim.text}&rdquo;</p>
+            <p className="mt-2 text-sm font-semibold leading-snug text-white">&ldquo;{claim.text}&rdquo;</p>
             <div className="mt-4">
               <ClaimStatusBadge status={claim.status} />
             </div>
@@ -40,7 +40,7 @@ export default function ClaimsSection({ company, initialClaimId }: { company: Co
               <p className="mt-3 line-clamp-2 text-xs leading-relaxed text-navy-500">{claim.verdictReason}</p>
             )}
             {claim.status === 'unverified' && (
-              <p className="mt-3 text-xs italic leading-relaxed text-navy-400">Insufficient evidence to verify this claim.</p>
+              <p className="mt-3 text-xs italic leading-relaxed text-navy-500">Insufficient evidence to verify this claim.</p>
             )}
           </Card>
         ))}

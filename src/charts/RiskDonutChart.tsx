@@ -29,14 +29,14 @@ export default function RiskDonutChart({ data }: RiskDonutChartProps) {
             ))}
           </Pie>
           <ReTooltip
-            contentStyle={{ borderRadius: 12, border: '1px solid #e2e8f2', fontSize: 12 }}
+            contentStyle={{ borderRadius: 12, border: '1px solid rgba(255,255,255,0.1)', background: '#0b1120', fontSize: 12, color: '#e2e8f2' }}
             formatter={(value, name) => [`${value} companies`, name]}
           />
         </PieChart>
       </ResponsiveContainer>
       <div className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center">
-        <span className="text-3xl font-extrabold text-navy-900">{total}</span>
-        <span className="text-xs font-medium text-navy-400">Companies</span>
+        <span className="text-3xl font-extrabold text-white">{total}</span>
+        <span className="text-xs font-medium text-navy-500">Companies</span>
       </div>
     </div>
   )

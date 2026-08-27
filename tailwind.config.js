@@ -49,6 +49,7 @@ export default {
           800: '#1e2b45',
           900: '#131c30',
           950: '#0b1120',
+          975: '#070a12',
         },
         risk: {
           low: '#16a34a',
@@ -57,9 +58,10 @@ export default {
         },
       },
       boxShadow: {
-        soft: '0 1px 2px 0 rgba(16, 24, 40, 0.04), 0 1px 3px 0 rgba(16, 24, 40, 0.06)',
-        card: '0 2px 8px -2px rgba(16, 24, 40, 0.08), 0 1px 3px -1px rgba(16, 24, 40, 0.06)',
-        lift: '0 8px 24px -8px rgba(16, 24, 40, 0.18)',
+        soft: '0 1px 2px 0 rgba(0, 0, 0, 0.24), 0 1px 3px 0 rgba(0, 0, 0, 0.3)',
+        card: '0 2px 8px -2px rgba(0, 0, 0, 0.35), 0 1px 3px -1px rgba(0, 0, 0, 0.3)',
+        lift: '0 12px 32px -10px rgba(0, 0, 0, 0.5)',
+        glow: '0 0 0 1px rgba(16, 185, 129, 0.35), 0 8px 24px -8px rgba(16, 185, 129, 0.2)',
       },
       keyframes: {
         'fade-in': {

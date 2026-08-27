@@ -5,9 +5,9 @@ import CapexDonutChart from '../../charts/CapexDonutChart'
 import type { Company } from '../../types'
 
 const discrepancyMeta = {
-  low: { label: 'LOW DISCREPANCY', className: 'border-emerald-200 bg-emerald-50 text-emerald-700', icon: CheckCircle2 },
-  moderate: { label: 'MODERATE DISCREPANCY', className: 'border-amber-200 bg-amber-50 text-amber-700', icon: AlertOctagon },
-  high: { label: 'HIGH DISCREPANCY', className: 'border-red-200 bg-red-50 text-red-700', icon: AlertOctagon },
+  low: { label: 'LOW DISCREPANCY', className: 'border-emerald-500/30 bg-emerald-500/10 text-emerald-400', icon: CheckCircle2 },
+  moderate: { label: 'MODERATE DISCREPANCY', className: 'border-amber-500/30 bg-amber-500/10 text-amber-400', icon: AlertOctagon },
+  high: { label: 'HIGH DISCREPANCY', className: 'border-red-500/30 bg-red-500/10 text-red-400', icon: AlertOctagon },
 }
 
 export default function FinancialsSection({ company }: { company: Company }) {
@@ -19,15 +19,15 @@ export default function FinancialsSection({ company }: { company: Company }) {
     <div>
       <div className="mb-4 flex items-center justify-between">
         <div>
-          <h2 className="text-lg font-bold text-navy-900">Sustainability Investment Analysis</h2>
-          <p className="text-sm text-navy-400">Claim: &ldquo;{financials.claimSummary}&rdquo;</p>
+          <h2 className="text-lg font-bold text-white">Sustainability Investment Analysis</h2>
+          <p className="text-sm text-navy-500">Claim: &ldquo;{financials.claimSummary}&rdquo;</p>
         </div>
         <AiTag label="AI Evidence Matching" />
       </div>
 
       <Card>
-        <h3 className="mb-1 text-sm font-bold text-navy-800">Capital Allocation vs. Sustainability Claims</h3>
-        <p className="mb-2 text-xs text-navy-400">Share of disclosed capital expenditure by category</p>
+        <h3 className="mb-1 text-sm font-bold text-navy-100">Capital Allocation vs. Sustainability Claims</h3>
+        <p className="mb-2 text-xs text-navy-500">Share of disclosed capital expenditure by category</p>
         <CapexDonutChart allocation={financials.allocation} />
       </Card>
 

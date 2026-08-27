@@ -7,7 +7,7 @@ export default function AppLayout() {
   const [mobileOpen, setMobileOpen] = useState(false)
 
   return (
-    <div className="flex min-h-screen bg-forest-50/40">
+    <div className="flex min-h-screen bg-navy-975">
       <Sidebar mobileOpen={mobileOpen} onCloseMobile={() => setMobileOpen(false)} />
       <div className="flex min-h-screen flex-1 flex-col lg:pl-0">
         <TopBar onOpenMobileMenu={() => setMobileOpen(true)} />

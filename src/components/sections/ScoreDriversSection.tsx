@@ -7,7 +7,7 @@ export default function ScoreDriversSection({ company }: { company: Company }) {
   return (
     <Card>
       <div className="mb-5 flex items-center justify-between">
-        <h2 className="text-lg font-bold text-navy-900">Key Score Drivers</h2>
+        <h2 className="text-lg font-bold text-white">Key Score Drivers</h2>
         <AiTag label="AI Risk Scoring" />
       </div>
       <div className="space-y-5">

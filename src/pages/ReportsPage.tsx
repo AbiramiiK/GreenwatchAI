@@ -28,17 +28,17 @@ export default function ReportsPage() {
           {companies.map((c) => (
             <Card key={c.id} hoverable className="cursor-pointer" onClick={() => navigate(`/reports/${c.id}`)}>
               <div className="flex items-center gap-3">
-                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-forest-100 text-sm font-bold text-forest-700">
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-emerald-500/15 text-sm font-bold text-emerald-400">
                   {c.logoInitials}
                 </span>
                 <div className="min-w-0">
-                  <p className="truncate font-bold text-navy-900">{c.name}</p>
-                  <p className="text-xs text-navy-400">{c.sector}</p>
+                  <p className="truncate font-bold text-white">{c.name}</p>
+                  <p className="text-xs text-navy-500">{c.sector}</p>
                 </div>
               </div>
               <div className="mt-4 flex items-center justify-between">
                 <RiskBadge level={c.riskLevel} />
-                <span className="inline-flex items-center gap-1 text-xs font-semibold text-emerald-700">
+                <span className="inline-flex items-center gap-1 text-xs font-semibold text-emerald-400">
                   Generate <ArrowRight className="h-3.5 w-3.5" />
                 </span>
               </div>
@@ -88,7 +88,7 @@ export default function ReportsPage() {
 
       <Card className="mb-4">
         <h2 className="text-sm font-bold uppercase tracking-wide text-navy-500">1. Executive Summary</h2>
-        <p className="mt-2 text-sm leading-relaxed text-navy-600">{company.summary}</p>
+        <p className="mt-2 text-sm leading-relaxed text-navy-500">{company.summary}</p>
       </Card>
 
       <Card className="mb-4">
@@ -97,7 +97,7 @@ export default function ReportsPage() {
           <RiskGauge score={company.riskScore} size={180} />
           <div className="text-center sm:text-left">
             <p className="text-sm text-navy-500">AI Confidence</p>
-            <p className="text-2xl font-extrabold text-navy-900">{company.aiConfidence}%</p>
+            <p className="text-2xl font-extrabold text-white">{company.aiConfidence}%</p>
             <div className="mt-2"><RiskBadge level={company.riskLevel} /></div>
           </div>
         </div>
@@ -107,10 +107,10 @@ export default function ReportsPage() {
         <h2 className="mb-3 text-sm font-bold uppercase tracking-wide text-navy-500">3. Claims Analysis</h2>
         <div className="space-y-3">
           {company.claims.map((claim) => (
-            <div key={claim.id} className="flex items-start justify-between gap-3 border-b border-navy-50 pb-3 last:border-0 last:pb-0">
+            <div key={claim.id} className="flex items-start justify-between gap-3 border-b border-white/[0.06] pb-3 last:border-0 last:pb-0">
               <div>
-                <p className="text-xs font-bold text-navy-400">{claim.code}</p>
-                <p className="text-sm text-navy-700">&ldquo;{claim.text}&rdquo;</p>
+                <p className="text-xs font-bold text-navy-500">{claim.code}</p>
+                <p className="text-sm text-navy-200">&ldquo;{claim.text}&rdquo;</p>
               </div>
               <ClaimStatusBadge status={claim.status} className="shrink-0" />
             </div>
@@ -120,36 +120,36 @@ export default function ReportsPage() {
 
       <Card className="mb-4">
         <h2 className="text-sm font-bold uppercase tracking-wide text-navy-500">4. Evidence Analysis</h2>
-        <p className="mt-2 text-sm text-navy-600">{company.evidence.length} evidence points collected across financial, environmental, and certification sources.</p>
+        <p className="mt-2 text-sm text-navy-500">{company.evidence.length} evidence points collected across financial, environmental, and certification sources.</p>
       </Card>
 
       <Card className="mb-4">
         <h2 className="text-sm font-bold uppercase tracking-wide text-navy-500">5. Emission Analysis</h2>
-        <p className="mt-2 text-sm text-navy-600">{company.emissions.note}</p>
+        <p className="mt-2 text-sm text-navy-500">{company.emissions.note}</p>
       </Card>
 
       <Card className="mb-4">
         <h2 className="text-sm font-bold uppercase tracking-wide text-navy-500">6. Financial Alignment</h2>
-        <p className="mt-2 text-sm text-navy-600">{company.financials.finding}</p>
+        <p className="mt-2 text-sm text-navy-500">{company.financials.finding}</p>
       </Card>
 
       <Card className="mb-4">
         <h2 className="text-sm font-bold uppercase tracking-wide text-navy-500">7. Certification Verification</h2>
-        <p className="mt-2 text-sm text-navy-600">
+        <p className="mt-2 text-sm text-navy-500">
           {company.certifications.filter((c) => c.verified).length} of {company.certifications.length} claimed certifications verified.
         </p>
       </Card>
 
       <Card className="mb-4">
         <h2 className="text-sm font-bold uppercase tracking-wide text-navy-500">8. Industry Benchmark</h2>
-        <p className="mt-2 text-sm text-navy-600">
+        <p className="mt-2 text-sm text-navy-500">
           Ranked against {company.sector} sector peers across emission intensity, renewable use, disclosure quality, and sustainability investment.
         </p>
       </Card>
 
       <Card className="mb-4">
         <h2 className="text-sm font-bold uppercase tracking-wide text-navy-500">9. Risk Factors</h2>
-        <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-navy-600">
+        <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-navy-500">
           {company.scoreDrivers
             .filter((d) => d.value >= 40)
             .map((d) => (
@@ -160,7 +160,7 @@ export default function ReportsPage() {
 
       <Card className="mb-8">
         <h2 className="text-sm font-bold uppercase tracking-wide text-navy-500">10. Recommended Actions</h2>
-        <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-navy-600">
+        <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-navy-500">
           {company.recommendedActions.map((a) => (
             <li key={a.id}>{a.text}</li>
           ))}

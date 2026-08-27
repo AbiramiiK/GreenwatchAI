@@ -22,7 +22,7 @@ export default function CertificationsPage() {
       <CertificationsSection company={company} />
       <button
         onClick={() => navigate(`/companies/${company.id}?tab=certifications`)}
-        className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-emerald-700 hover:text-emerald-800"
+        className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-emerald-400 hover:text-emerald-300"
       >
         Open full analysis for {company.name}
         <ArrowUpRight className="h-4 w-4" />

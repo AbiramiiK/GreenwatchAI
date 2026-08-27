@@ -54,14 +54,14 @@ export default function Companies() {
 
       <Card className="mb-6">
         <div className="flex flex-wrap items-center gap-3">
-          <div className="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wide text-navy-400">
+          <div className="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wide text-navy-500">
             <SlidersHorizontal className="h-3.5 w-3.5" />
             Filters
           </div>
           <select
             value={riskFilter}
             onChange={(e) => setRiskFilter(e.target.value as RiskLevel | 'all')}
-            className="rounded-lg border border-navy-200 bg-white px-3 py-2 text-sm text-navy-700 outline-none focus:border-emerald-400"
+            className="rounded-lg border border-white/10 bg-navy-900 px-3 py-2 text-sm text-navy-200 outline-none focus:border-emerald-400"
           >
             {riskOptions.map((o) => (
               <option key={o.value} value={o.value}>
@@ -72,7 +72,7 @@ export default function Companies() {
           <select
             value={industryFilter}
             onChange={(e) => setIndustryFilter(e.target.value)}
-            className="rounded-lg border border-navy-200 bg-white px-3 py-2 text-sm text-navy-700 outline-none focus:border-emerald-400"
+            className="rounded-lg border border-white/10 bg-navy-900 px-3 py-2 text-sm text-navy-200 outline-none focus:border-emerald-400"
           >
             <option value="all">All Industries</option>
             {industries.map((i) => (
@@ -84,7 +84,7 @@ export default function Companies() {
           <select
             value={claimFilter}
             onChange={(e) => setClaimFilter(e.target.value)}
-            className="rounded-lg border border-navy-200 bg-white px-3 py-2 text-sm text-navy-700 outline-none focus:border-emerald-400"
+            className="rounded-lg border border-white/10 bg-navy-900 px-3 py-2 text-sm text-navy-200 outline-none focus:border-emerald-400"
           >
             {claimCategories.map((o) => (
               <option key={o.value} value={o.value}>
@@ -95,7 +95,7 @@ export default function Companies() {
           <select
             value={dateFilter}
             onChange={(e) => setDateFilter(e.target.value)}
-            className="rounded-lg border border-navy-200 bg-white px-3 py-2 text-sm text-navy-700 outline-none focus:border-emerald-400"
+            className="rounded-lg border border-white/10 bg-navy-900 px-3 py-2 text-sm text-navy-200 outline-none focus:border-emerald-400"
           >
             {dateOptions.map((d) => (
               <option key={d} value={d}>
@@ -111,7 +111,7 @@ export default function Companies() {
                 setClaimFilter('all')
                 setDateFilter('All Time')
               }}
-              className="text-xs font-semibold text-emerald-700 hover:text-emerald-800"
+              className="text-xs font-semibold text-emerald-400 hover:text-emerald-300"
             >
               Clear filters
             </button>
@@ -126,18 +126,18 @@ export default function Companies() {
           {filtered.map((c) => (
             <Card key={c.id} hoverable className="cursor-pointer" onClick={() => navigate(`/companies/${c.id}`)}>
               <div className="flex items-center gap-3">
-                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-forest-100 text-sm font-bold text-forest-700">
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-emerald-500/15 text-sm font-bold text-emerald-400">
                   {c.logoInitials}
                 </span>
                 <div className="min-w-0">
-                  <p className="truncate font-bold text-navy-900">{c.name}</p>
-                  <p className="text-xs text-navy-400">{c.sector} · {c.headquarters}</p>
+                  <p className="truncate font-bold text-white">{c.name}</p>
+                  <p className="text-xs text-navy-500">{c.sector} · {c.headquarters}</p>
                 </div>
               </div>
               <p className="mt-3 line-clamp-2 text-xs leading-relaxed text-navy-500">{c.summary}</p>
               <div className="mt-4 flex items-center justify-between">
                 <RiskBadge level={c.riskLevel} />
-                <span className="text-lg font-extrabold text-navy-900">{c.riskScore}<span className="text-xs font-medium text-navy-400">/100</span></span>
+                <span className="text-lg font-extrabold text-white">{c.riskScore}<span className="text-xs font-medium text-navy-500">/100</span></span>
               </div>
             </Card>
           ))}

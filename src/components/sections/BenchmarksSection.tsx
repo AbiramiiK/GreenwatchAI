@@ -13,8 +13,8 @@ export default function BenchmarksSection({ company }: { company: Company }) {
     <div>
       <div className="mb-4 flex items-center justify-between">
         <div>
-          <h2 className="text-lg font-bold text-navy-900">Industry Benchmark</h2>
-          <p className="text-sm text-navy-400">{company.name} vs. {company.sector} sector peers</p>
+          <h2 className="text-lg font-bold text-white">Industry Benchmark</h2>
+          <p className="text-sm text-navy-500">{company.name} vs. {company.sector} sector peers</p>
         </div>
         <AiTag label="AI Anomaly Detection" />
       </div>
@@ -26,9 +26,9 @@ export default function BenchmarksSection({ company }: { company: Company }) {
       </Card>
 
       {belowAverageCount >= 2 && (
-        <div className="mt-4 flex items-start gap-3 rounded-2xl border border-amber-200 bg-amber-50 p-4">
-          <Info className="mt-0.5 h-5 w-5 shrink-0 text-amber-600" />
-          <p className="text-sm leading-relaxed text-amber-800">
+        <div className="mt-4 flex items-start gap-3 rounded-2xl border border-amber-500/30 bg-amber-500/10 p-4">
+          <Info className="mt-0.5 h-5 w-5 shrink-0 text-amber-400" />
+          <p className="text-sm leading-relaxed text-amber-300">
             Company performance is below industry average in multiple sustainability indicators.
           </p>
         </div>

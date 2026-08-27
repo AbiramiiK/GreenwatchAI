@@ -97,20 +97,20 @@ export default function NewAnalysis() {
         <div className="text-center">
           {stage === 'processing' ? (
             <>
-              <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-500 to-forest-700 shadow-lift animate-pulse-ring">
+              <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-500 to-emerald-700 shadow-lift animate-pulse-ring">
                 <Sparkles className="h-8 w-8 text-white" />
               </div>
-              <h1 className="mt-6 text-2xl font-extrabold tracking-tight text-navy-900">GREENWATCH AI IS ANALYZING&hellip;</h1>
+              <h1 className="mt-6 text-2xl font-extrabold tracking-tight text-white">GREENWATCH AI IS ANALYZING&hellip;</h1>
               <p className="mt-2 text-sm text-navy-500">
                 Cross-referencing claims from {selectedCompany?.name} against financial, environmental, and certification evidence.
               </p>
             </>
           ) : (
             <>
-              <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-500 to-forest-700 shadow-lift">
+              <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-500 to-emerald-700 shadow-lift">
                 <Check className="h-8 w-8 text-white" strokeWidth={3} />
               </div>
-              <h1 className="mt-6 text-2xl font-extrabold tracking-tight text-navy-900">ANALYSIS COMPLETE</h1>
+              <h1 className="mt-6 text-2xl font-extrabold tracking-tight text-white">ANALYSIS COMPLETE</h1>
               <p className="mt-2 text-sm text-navy-500">GREENWATCH AI has finished verifying {selectedCompany?.name}</p>
             </>
           )}
@@ -129,8 +129,8 @@ export default function NewAnalysis() {
                       done
                         ? 'border-emerald-500 bg-emerald-500'
                         : active
-                        ? 'border-emerald-400 bg-white'
-                        : 'border-navy-200 bg-white'
+                        ? 'border-emerald-400 bg-navy-900'
+                        : 'border-white/10 bg-navy-900'
                     )}
                   >
                     {done && <Check className="h-3.5 w-3.5 text-white" strokeWidth={3} />}
@@ -139,7 +139,7 @@ export default function NewAnalysis() {
                   <span
                     className={cn(
                       'text-sm transition-colors',
-                      done ? 'font-medium text-navy-700' : active ? 'font-semibold text-navy-900' : 'text-navy-400'
+                      done ? 'font-medium text-navy-200' : active ? 'font-semibold text-white' : 'text-navy-500'
                     )}
                   >
                     {s.label}
@@ -153,7 +153,7 @@ export default function NewAnalysis() {
         {stage === 'complete' && selectedCompany && (
           <Card className="mt-6 flex flex-col items-center animate-scale-in">
             <RiskGauge score={selectedCompany.riskScore} size={200} />
-            <p className="mt-2 text-sm text-navy-500">AI Confidence: <span className="font-bold text-navy-800">{selectedCompany.aiConfidence}%</span></p>
+            <p className="mt-2 text-sm text-navy-500">AI Confidence: <span className="font-bold text-navy-100">{selectedCompany.aiConfidence}%</span></p>
             <Button className="mt-6 w-full" size="lg" onClick={() => navigate(`/companies/${selectedCompany.id}`)}>
               VIEW FULL REPORT
               <ArrowRight className="h-4 w-4" />
@@ -180,7 +180,7 @@ export default function NewAnalysis() {
             <select
               value={companyId}
               onChange={(e) => setCompanyId(e.target.value)}
-              className="w-full rounded-xl border border-navy-200 bg-white px-3 py-2.5 text-sm outline-none focus:border-emerald-400 focus:ring-4 focus:ring-emerald-100"
+              className="w-full rounded-xl border border-white/10 bg-navy-900 px-3 py-2.5 text-sm outline-none focus:border-emerald-400 focus:ring-4 focus:ring-emerald-500/15"
             >
               {companies.map((c) => (
                 <option key={c.id} value={c.id}>
@@ -194,7 +194,7 @@ export default function NewAnalysis() {
             <select
               value={industry}
               onChange={(e) => setIndustry(e.target.value)}
-              className="w-full rounded-xl border border-navy-200 bg-white px-3 py-2.5 text-sm outline-none focus:border-emerald-400 focus:ring-4 focus:ring-emerald-100"
+              className="w-full rounded-xl border border-white/10 bg-navy-900 px-3 py-2.5 text-sm outline-none focus:border-emerald-400 focus:ring-4 focus:ring-emerald-500/15"
             >
               {industries.map((i) => (
                 <option key={i} value={i}>
@@ -208,7 +208,7 @@ export default function NewAnalysis() {
             <input
               value={period}
               onChange={(e) => setPeriod(e.target.value)}
-              className="w-full rounded-xl border border-navy-200 bg-white px-3 py-2.5 text-sm outline-none focus:border-emerald-400 focus:ring-4 focus:ring-emerald-100"
+              className="w-full rounded-xl border border-white/10 bg-navy-900 px-3 py-2.5 text-sm outline-none focus:border-emerald-400 focus:ring-4 focus:ring-emerald-500/15"
             />
           </div>
         </div>
@@ -223,18 +223,18 @@ export default function NewAnalysis() {
             <Card
               key={slot.id}
               hoverable
-              className={cn('cursor-pointer border-2 border-dashed', fileName ? 'border-emerald-300 bg-emerald-50/40' : 'border-navy-200')}
+              className={cn('cursor-pointer border-2 border-dashed', fileName ? 'border-emerald-500/40 bg-emerald-500/10' : 'border-white/10')}
               onClick={() => handleFileSelect(slot.id, slot.kind)}
             >
               <div className="flex items-center gap-3.5">
-                <div className={cn('flex h-11 w-11 shrink-0 items-center justify-center rounded-xl', fileName ? 'bg-emerald-100 text-emerald-700' : 'bg-navy-50 text-navy-400')}>
+                <div className={cn('flex h-11 w-11 shrink-0 items-center justify-center rounded-xl', fileName ? 'bg-emerald-500/15 text-emerald-400' : 'bg-navy-800 text-navy-500')}>
                   {fileName ? <Check className="h-5 w-5" /> : <Icon className="h-5 w-5" />}
                 </div>
                 <div className="min-w-0 flex-1">
-                  <p className="font-semibold text-navy-800">{slot.title}</p>
-                  <p className="truncate text-xs text-navy-400">{fileName ?? slot.formats}</p>
+                  <p className="font-semibold text-navy-100">{slot.title}</p>
+                  <p className="truncate text-xs text-navy-500">{fileName ?? slot.formats}</p>
                 </div>
-                {!fileName && <Upload className="h-4 w-4 shrink-0 text-navy-300" />}
+                {!fileName && <Upload className="h-4 w-4 shrink-0 text-navy-500" />}
               </div>
             </Card>
           )

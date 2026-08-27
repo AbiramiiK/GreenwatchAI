@@ -11,9 +11,9 @@ interface ScoreBarProps {
 
 function colorFor(value: number, invert?: boolean) {
   const effective = invert ? 100 - value : value
-  if (effective <= 30) return '#16a34a'
-  if (effective <= 60) return '#d97706'
-  return '#dc2626'
+  if (effective <= 30) return '#22c55e'
+  if (effective <= 60) return '#f59e0b'
+  return '#ef4444'
 }
 
 export default function ScoreBar({ label, value, description, invert }: ScoreBarProps) {
@@ -21,20 +21,20 @@ export default function ScoreBar({ label, value, description, invert }: ScoreBar
   const color = colorFor(value, invert)
 
   useEffect(() => {
-    const raf = requestAnimationFrame(() => setWidth(value))
-    return () => cancelAnimationFrame(raf)
+    const t = setTimeout(() => setWidth(value), 30)
+    return () => clearTimeout(t)
   }, [value])
 
   return (
     <div>
       <div className="mb-1.5 flex items-center justify-between">
         <div className="flex items-center gap-1.5">
-          <span className="text-sm font-medium text-navy-700">{label}</span>
+          <span className="text-sm font-medium text-navy-200">{label}</span>
           {description && <Tooltip text={description} />}
         </div>
-        <span className="text-sm font-bold text-navy-900">{value} / 100</span>
+        <span className="text-sm font-bold text-white">{value} / 100</span>
       </div>
-      <div className="h-2.5 w-full overflow-hidden rounded-full bg-navy-100">
+      <div className="h-2.5 w-full overflow-hidden rounded-full bg-white/[0.06]">
         <div
           className={cn('h-full rounded-full')}
           style={{
