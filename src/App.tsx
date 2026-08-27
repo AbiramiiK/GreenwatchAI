@@ -7,6 +7,8 @@ import Dashboard from './pages/Dashboard'
 import Companies from './pages/Companies'
 import Watchlist from './pages/Watchlist'
 import NewAnalysis from './pages/NewAnalysis'
+import TruthInvestigation from './pages/TruthInvestigation'
+import Compare from './pages/Compare'
 import CompanyAnalysis from './pages/CompanyAnalysis'
 import ClaimsPage from './pages/ClaimsPage'
 import EvidencePage from './pages/EvidencePage'
@@ -17,6 +19,8 @@ import BenchmarksPage from './pages/BenchmarksPage'
 import AlertsPage from './pages/AlertsPage'
 import ReportsPage from './pages/ReportsPage'
 import SettingsPage from './pages/SettingsPage'
+import HowItWorks from './pages/HowItWorks'
+import About from './pages/About'
 import NotFound from './pages/NotFound'
 
 export default function App() {
@@ -31,6 +35,8 @@ export default function App() {
             <Route path="/companies" element={<Companies />} />
             <Route path="/companies/:companyId" element={<CompanyAnalysis />} />
             <Route path="/watchlist" element={<Watchlist />} />
+            <Route path="/investigate" element={<TruthInvestigation />} />
+            <Route path="/compare" element={<Compare />} />
             <Route path="/new-analysis" element={<NewAnalysis />} />
             <Route path="/claims" element={<ClaimsPage />} />
             <Route path="/evidence" element={<EvidencePage />} />
@@ -42,6 +48,8 @@ export default function App() {
             <Route path="/reports" element={<ReportsPage />} />
             <Route path="/reports/:companyId" element={<ReportsPage />} />
             <Route path="/settings" element={<SettingsPage />} />
+            <Route path="/how-it-works" element={<HowItWorks />} />
+            <Route path="/about" element={<About />} />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>

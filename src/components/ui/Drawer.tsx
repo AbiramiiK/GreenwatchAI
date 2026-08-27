@@ -29,17 +29,17 @@ export default function Drawer({ open, onClose, title, subtitle, eyebrow = 'Deta
 
   return (
     <div className="fixed inset-0 z-[90]">
-      <div className="absolute inset-0 bg-navy-950/50 backdrop-blur-sm animate-fade-in" onClick={onClose} />
-      <div className="absolute inset-y-0 right-0 flex w-full max-w-2xl animate-slide-in-right flex-col bg-white shadow-2xl">
-        <div className="flex items-start justify-between border-b border-navy-100 px-6 py-5">
+      <div className="absolute inset-0 bg-black/70 backdrop-blur-sm animate-fade-in" onClick={onClose} />
+      <div className="absolute inset-y-0 right-0 flex w-full max-w-2xl animate-slide-in-right flex-col border-l border-white/[0.08] bg-navy-950 shadow-2xl">
+        <div className="flex items-start justify-between border-b border-white/[0.08] px-6 py-5">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-wide text-emerald-600">{eyebrow}</p>
-            <h2 className="mt-1 text-lg font-bold text-navy-900">{title}</h2>
-            {subtitle && <p className="mt-1 text-sm text-navy-500">{subtitle}</p>}
+            <p className="text-xs font-semibold uppercase tracking-wide text-emerald-400">{eyebrow}</p>
+            <h2 className="mt-1 text-lg font-bold text-white">{title}</h2>
+            {subtitle && <p className="mt-1 text-sm text-navy-400">{subtitle}</p>}
           </div>
           <button
             onClick={onClose}
-            className="rounded-lg p-2 text-navy-400 hover:bg-navy-50 hover:text-navy-700"
+            className="rounded-lg p-2 text-navy-400 hover:bg-white/5 hover:text-white"
             aria-label="Close"
           >
             <X className="h-5 w-5" />

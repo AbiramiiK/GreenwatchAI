@@ -18,9 +18,9 @@ interface ToastContextValue {
 const ToastContext = createContext<ToastContextValue | null>(null)
 
 const kindStyles: Record<ToastKind, { icon: typeof CheckCircle2; className: string }> = {
-  success: { icon: CheckCircle2, className: 'border-emerald-200 bg-white text-emerald-700' },
-  info: { icon: Info, className: 'border-navy-200 bg-white text-navy-700' },
-  warning: { icon: AlertTriangle, className: 'border-amber-200 bg-white text-amber-700' },
+  success: { icon: CheckCircle2, className: 'border-emerald-500/30 bg-navy-900 text-emerald-400' },
+  info: { icon: Info, className: 'border-white/10 bg-navy-900 text-navy-200' },
+  warning: { icon: AlertTriangle, className: 'border-amber-500/30 bg-navy-900 text-amber-400' },
 }
 
 export function ToastProvider({ children }: { children: ReactNode }) {
@@ -54,9 +54,9 @@ export function ToastProvider({ children }: { children: ReactNode }) {
               <Icon className="mt-0.5 h-5 w-5 shrink-0" />
               <div className="min-w-0 flex-1">
                 <p className="text-sm font-semibold leading-tight">{t.title}</p>
-                {t.message && <p className="mt-0.5 text-xs leading-snug text-navy-500">{t.message}</p>}
+                {t.message && <p className="mt-0.5 text-xs leading-snug text-navy-400">{t.message}</p>}
               </div>
-              <button onClick={() => dismiss(t.id)} className="text-navy-400 hover:text-navy-600">
+              <button onClick={() => dismiss(t.id)} className="text-navy-500 hover:text-navy-300">
                 <X className="h-4 w-4" />
               </button>
             </div>

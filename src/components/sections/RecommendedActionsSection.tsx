@@ -14,7 +14,7 @@ export default function RecommendedActionsSection({ company }: { company: Compan
   return (
     <Card>
       <div className="mb-4 flex items-center justify-between">
-        <h2 className="text-lg font-bold text-navy-900">AI Recommended Actions</h2>
+        <h2 className="text-lg font-bold text-white">AI Recommended Actions</h2>
         <AiTag label="Explainable AI" />
       </div>
       <ul className="space-y-2.5">
@@ -24,14 +24,14 @@ export default function RecommendedActionsSection({ company }: { company: Compan
             <li key={action.id}>
               <button
                 onClick={() => setDone((prev) => (checked ? prev.filter((id) => id !== action.id) : [...prev, action.id]))}
-                className="flex w-full items-start gap-2.5 rounded-xl px-2 py-1.5 text-left hover:bg-navy-50"
+                className="flex w-full items-start gap-2.5 rounded-xl px-2 py-1.5 text-left hover:bg-navy-800"
               >
                 {checked ? (
-                  <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-emerald-600" />
+                  <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-emerald-400" />
                 ) : (
-                  <Circle className="mt-0.5 h-5 w-5 shrink-0 text-navy-300" />
+                  <Circle className="mt-0.5 h-5 w-5 shrink-0 text-navy-500" />
                 )}
-                <span className={`text-sm ${checked ? 'text-navy-400 line-through' : 'text-navy-700'}`}>{action.text}</span>
+                <span className={`text-sm ${checked ? 'text-navy-500 line-through' : 'text-navy-200'}`}>{action.text}</span>
               </button>
             </li>
           )

@@ -44,9 +44,9 @@ export function classifyRisk(score: number): RiskLevel {
 }
 
 export const riskLevelMeta: Record<RiskLevel, { label: string; color: string; badgeClass: string }> = {
-  genuine: { label: 'Genuine', color: '#16a34a', badgeClass: 'bg-green-50 text-green-700 border-green-200' },
-  'needs-audit': { label: 'Needs Audit', color: '#d97706', badgeClass: 'bg-amber-50 text-amber-700 border-amber-200' },
-  'high-risk': { label: 'High Risk', color: '#dc2626', badgeClass: 'bg-red-50 text-red-700 border-red-200' },
+  genuine: { label: 'Genuine', color: '#22c55e', badgeClass: 'bg-emerald-500/10 text-emerald-400 border-emerald-500/30' },
+  'needs-audit': { label: 'Needs Audit', color: '#f59e0b', badgeClass: 'bg-amber-500/10 text-amber-400 border-amber-500/30' },
+  'high-risk': { label: 'High Risk', color: '#ef4444', badgeClass: 'bg-red-500/10 text-red-400 border-red-500/30' },
 }
 
 export interface PipelineCallbacks {

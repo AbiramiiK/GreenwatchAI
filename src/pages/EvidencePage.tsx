@@ -60,17 +60,17 @@ export default function EvidencePage() {
 
       <Card className="mb-6">
         <div className="flex flex-wrap items-center gap-3">
-          <div className="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wide text-navy-400">
+          <div className="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wide text-navy-500">
             <SlidersHorizontal className="h-3.5 w-3.5" />
             Filters
           </div>
-          <select value={companyFilter} onChange={(e) => setCompanyFilter(e.target.value)} className="rounded-lg border border-navy-200 bg-white px-3 py-2 text-sm text-navy-700 outline-none focus:border-emerald-400">
+          <select value={companyFilter} onChange={(e) => setCompanyFilter(e.target.value)} className="rounded-lg border border-white/10 bg-navy-900 px-3 py-2 text-sm text-navy-200 outline-none focus:border-emerald-400">
             <option value="all">All Companies</option>
             {companies.map((c) => (
               <option key={c.id} value={c.id}>{c.name}</option>
             ))}
           </select>
-          <select value={typeFilter} onChange={(e) => setTypeFilter(e.target.value as Evidence['type'] | 'all')} className="rounded-lg border border-navy-200 bg-white px-3 py-2 text-sm text-navy-700 outline-none focus:border-emerald-400">
+          <select value={typeFilter} onChange={(e) => setTypeFilter(e.target.value as Evidence['type'] | 'all')} className="rounded-lg border border-white/10 bg-navy-900 px-3 py-2 text-sm text-navy-200 outline-none focus:border-emerald-400">
             {typeOptions.map((o) => (
               <option key={o.value} value={o.value}>{o.label}</option>
             ))}
@@ -88,15 +88,15 @@ export default function EvidencePage() {
             return (
               <Card key={ev.id} hoverable className="cursor-pointer" onClick={() => setOpenEvidenceId(ev.id)}>
                 <div className="flex items-start gap-2.5">
-                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-emerald-50 text-emerald-700">
+                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-emerald-500/10 text-emerald-400">
                     <Icon className="h-4 w-4" />
                   </span>
                   <div className="min-w-0">
-                    <p className="text-xs font-bold uppercase tracking-wide text-navy-400">EV-{ev.id.split('-').pop()} &middot; {company.name}</p>
-                    <p className="mt-1 text-sm font-semibold leading-snug text-navy-800">{ev.detectedValue}</p>
+                    <p className="text-xs font-bold uppercase tracking-wide text-navy-500">EV-{ev.id.split('-').pop()} &middot; {company.name}</p>
+                    <p className="mt-1 text-sm font-semibold leading-snug text-navy-100">{ev.detectedValue}</p>
                   </div>
                 </div>
-                <p className="mt-3 text-xs text-navy-400">{ev.source}{ev.page ? ` · Page ${ev.page}` : ''}</p>
+                <p className="mt-3 text-xs text-navy-500">{ev.source}{ev.page ? ` · Page ${ev.page}` : ''}</p>
               </Card>
             )
           })}

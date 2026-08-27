@@ -29,11 +29,11 @@ export default function EmissionsTrendChart({ history }: { history: EmissionYear
               <stop offset="100%" stopColor="#dc2626" stopOpacity={0.02} />
             </linearGradient>
           </defs>
-          <CartesianGrid strokeDasharray="3 3" stroke="#eef2f7" vertical={false} />
-          <XAxis dataKey="year" tick={{ fontSize: 12, fill: '#4f6a91' }} axisLine={false} tickLine={false} />
-          <YAxis tick={{ fontSize: 12, fill: '#4f6a91' }} axisLine={false} tickLine={false} />
-          <ReTooltip contentStyle={{ borderRadius: 12, border: '1px solid #e2e8f2', fontSize: 12 }} />
-          <Legend wrapperStyle={{ fontSize: 12 }} />
+          <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.06)" vertical={false} />
+          <XAxis dataKey="year" tick={{ fontSize: 12, fill: '#6f89ae' }} axisLine={false} tickLine={false} />
+          <YAxis tick={{ fontSize: 12, fill: '#6f89ae' }} axisLine={false} tickLine={false} />
+          <ReTooltip contentStyle={{ borderRadius: 12, border: '1px solid rgba(255,255,255,0.1)', background: '#0b1120', fontSize: 12, color: '#e2e8f2' }} />
+          <Legend wrapperStyle={{ fontSize: 12, color: '#9fb2cc' }} />
           <Area type="monotone" dataKey="scope1" name="Scope 1" stroke="#059669" strokeWidth={2} fill="url(#scope1Fill)" animationDuration={900} />
           <Area type="monotone" dataKey="scope2" name="Scope 2" stroke="#3a5177" strokeWidth={2} fill="url(#scope2Fill)" animationDuration={900} />
           <Area type="monotone" dataKey="scope3" name="Scope 3" stroke="#dc2626" strokeWidth={2} fill="url(#scope3Fill)" animationDuration={900} />

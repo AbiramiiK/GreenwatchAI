@@ -29,12 +29,12 @@ export default function Dashboard() {
       />
 
       <div className="relative mb-6 max-w-xl">
-        <Search className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-navy-400" />
+        <Search className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-navy-500" />
         <input
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Search company, sustainability claim or report..."
-          className="w-full rounded-2xl border border-navy-200 bg-white py-3.5 pl-11 pr-4 text-sm shadow-soft outline-none transition placeholder:text-navy-400 focus:border-emerald-400 focus:ring-4 focus:ring-emerald-100"
+          className="w-full rounded-2xl border border-white/10 bg-navy-900 py-3.5 pl-11 pr-4 text-sm shadow-soft outline-none transition placeholder:text-navy-500 focus:border-emerald-400 focus:ring-4 focus:ring-emerald-500/15"
         />
       </div>
 
@@ -48,17 +48,17 @@ export default function Dashboard() {
 
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
         <Card className="lg:col-span-1">
-          <h2 className="text-base font-bold text-navy-900">Global Greenwashing Risk Overview</h2>
-          <p className="mt-1 text-xs text-navy-400">Portfolio-wide classification across all analyzed companies</p>
+          <h2 className="text-base font-bold text-white">Global Greenwashing Risk Overview</h2>
+          <p className="mt-1 text-xs text-navy-500">Portfolio-wide classification across all analyzed companies</p>
           <RiskDonutChart data={globalRiskOverview} />
           <div className="mt-2 space-y-2">
             {globalRiskOverview.map((item) => (
               <div key={item.name} className="flex items-center justify-between text-sm">
-                <span className="flex items-center gap-2 text-navy-600">
+                <span className="flex items-center gap-2 text-navy-500">
                   <span className="h-2.5 w-2.5 rounded-full" style={{ backgroundColor: item.color }} />
                   {item.name}
                 </span>
-                <span className="font-semibold text-navy-900">{item.value}</span>
+                <span className="font-semibold text-white">{item.value}</span>
               </div>
             ))}
           </div>
@@ -67,12 +67,12 @@ export default function Dashboard() {
         <Card className="lg:col-span-2">
           <div className="mb-4 flex items-center justify-between">
             <div>
-              <h2 className="text-base font-bold text-navy-900">Recently Analyzed Companies</h2>
-              <p className="mt-1 text-xs text-navy-400">Click a company to open its full risk analysis</p>
+              <h2 className="text-base font-bold text-white">Recently Analyzed Companies</h2>
+              <p className="mt-1 text-xs text-navy-500">Click a company to open its full risk analysis</p>
             </div>
             <button
               onClick={() => navigate('/companies')}
-              className="inline-flex items-center gap-1 text-xs font-semibold text-emerald-700 hover:text-emerald-800"
+              className="inline-flex items-center gap-1 text-xs font-semibold text-emerald-400 hover:text-emerald-300"
             >
               View all <ArrowRight className="h-3.5 w-3.5" />
             </button>
@@ -81,7 +81,7 @@ export default function Dashboard() {
           <div className="scrollbar-thin -mx-2 overflow-x-auto">
             <table className="w-full min-w-[560px] border-collapse text-sm">
               <thead>
-                <tr className="text-left text-xs font-semibold uppercase tracking-wide text-navy-400">
+                <tr className="text-left text-xs font-semibold uppercase tracking-wide text-navy-500">
                   <th className="px-2 pb-3">Company</th>
                   <th className="px-2 pb-3">Sector</th>
                   <th className="px-2 pb-3 text-right">Risk Score</th>
@@ -94,27 +94,27 @@ export default function Dashboard() {
                   <tr
                     key={c.id}
                     onClick={() => navigate(`/companies/${c.id}`)}
-                    className="cursor-pointer border-t border-navy-50 transition hover:bg-forest-50/60"
+                    className="cursor-pointer border-t border-white/[0.06] transition hover:bg-emerald-500/10"
                   >
                     <td className="px-2 py-3">
                       <div className="flex items-center gap-2.5">
-                        <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-forest-100 text-xs font-bold text-forest-700">
+                        <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-emerald-500/15 text-xs font-bold text-emerald-400">
                           {c.logoInitials}
                         </span>
-                        <span className="font-medium text-navy-800">{c.name}</span>
+                        <span className="font-medium text-navy-100">{c.name}</span>
                       </div>
                     </td>
                     <td className="px-2 py-3 text-navy-500">{c.sector}</td>
-                    <td className="px-2 py-3 text-right font-bold text-navy-900">{c.riskScore}</td>
+                    <td className="px-2 py-3 text-right font-bold text-white">{c.riskScore}</td>
                     <td className="px-2 py-3">
                       <RiskBadge level={c.riskLevel} />
                     </td>
-                    <td className="px-2 py-3 text-navy-400">{c.lastAnalysis}</td>
+                    <td className="px-2 py-3 text-navy-500">{c.lastAnalysis}</td>
                   </tr>
                 ))}
                 {visibleCompanies.length === 0 && (
                   <tr>
-                    <td colSpan={5} className="px-2 py-10 text-center text-sm text-navy-400">
+                    <td colSpan={5} className="px-2 py-10 text-center text-sm text-navy-500">
                       No companies match &ldquo;{query}&rdquo;.
                     </td>
                   </tr>

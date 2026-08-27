@@ -58,22 +58,22 @@ export default function ClaimsPage() {
 
       <Card className="mb-6">
         <div className="flex flex-wrap items-center gap-3">
-          <div className="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wide text-navy-400">
+          <div className="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wide text-navy-500">
             <SlidersHorizontal className="h-3.5 w-3.5" />
             Filters
           </div>
-          <select value={companyFilter} onChange={(e) => setCompanyFilter(e.target.value)} className="rounded-lg border border-navy-200 bg-white px-3 py-2 text-sm text-navy-700 outline-none focus:border-emerald-400">
+          <select value={companyFilter} onChange={(e) => setCompanyFilter(e.target.value)} className="rounded-lg border border-white/10 bg-navy-900 px-3 py-2 text-sm text-navy-200 outline-none focus:border-emerald-400">
             <option value="all">All Companies</option>
             {companies.map((c) => (
               <option key={c.id} value={c.id}>{c.name}</option>
             ))}
           </select>
-          <select value={statusFilter} onChange={(e) => setStatusFilter(e.target.value as ClaimStatus | 'all')} className="rounded-lg border border-navy-200 bg-white px-3 py-2 text-sm text-navy-700 outline-none focus:border-emerald-400">
+          <select value={statusFilter} onChange={(e) => setStatusFilter(e.target.value as ClaimStatus | 'all')} className="rounded-lg border border-white/10 bg-navy-900 px-3 py-2 text-sm text-navy-200 outline-none focus:border-emerald-400">
             {statusOptions.map((o) => (
               <option key={o.value} value={o.value}>{o.label}</option>
             ))}
           </select>
-          <select value={categoryFilter} onChange={(e) => setCategoryFilter(e.target.value)} className="rounded-lg border border-navy-200 bg-white px-3 py-2 text-sm text-navy-700 outline-none focus:border-emerald-400">
+          <select value={categoryFilter} onChange={(e) => setCategoryFilter(e.target.value)} className="rounded-lg border border-white/10 bg-navy-900 px-3 py-2 text-sm text-navy-200 outline-none focus:border-emerald-400">
             {categoryOptions.map((o) => (
               <option key={o.value} value={o.value}>{o.label}</option>
             ))}
@@ -90,10 +90,10 @@ export default function ClaimsPage() {
             return (
               <Card key={claim.id} hoverable className="cursor-pointer" onClick={() => setOpenClaimId(claim.id)}>
                 <div className="flex items-center justify-between">
-                  <span className="text-xs font-bold uppercase tracking-wide text-navy-400">{claim.code}</span>
-                  <span className="text-xs font-medium text-navy-400">{company.name}</span>
+                  <span className="text-xs font-bold uppercase tracking-wide text-navy-500">{claim.code}</span>
+                  <span className="text-xs font-medium text-navy-500">{company.name}</span>
                 </div>
-                <p className="mt-2 text-sm font-semibold leading-snug text-navy-900">&ldquo;{claim.text}&rdquo;</p>
+                <p className="mt-2 text-sm font-semibold leading-snug text-white">&ldquo;{claim.text}&rdquo;</p>
                 <div className="mt-4">
                   <ClaimStatusBadge status={claim.status} />
                 </div>

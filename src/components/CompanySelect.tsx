@@ -12,10 +12,10 @@ export default function CompanySelect({ value, onChange }: CompanySelectProps) {
       <select
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="appearance-none rounded-xl border border-navy-200 bg-white py-2.5 pl-4 pr-9 text-sm font-medium text-navy-800 outline-none focus:border-emerald-400 focus:ring-4 focus:ring-emerald-100"
+        className="appearance-none rounded-xl border border-white/10 bg-navy-900 py-2.5 pl-4 pr-9 text-sm font-medium text-navy-100 outline-none focus:border-emerald-500/50 focus:ring-4 focus:ring-emerald-500/10"
       >
         {companies.map((c) => (
-          <option key={c.id} value={c.id}>
+          <option key={c.id} value={c.id} className="bg-navy-900 text-navy-100">
             {c.name}
           </option>
         ))}

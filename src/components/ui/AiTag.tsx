@@ -7,7 +7,7 @@ export default function AiTag({ label, className }: { label: string; className?:
   return (
     <span
       className={cn(
-        'inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-forest-900 to-navy-900 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-emerald-300',
+        'inline-flex items-center gap-1.5 rounded-full border border-emerald-500/20 bg-emerald-500/10 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-emerald-400',
         className
       )}
     >

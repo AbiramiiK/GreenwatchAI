@@ -21,10 +21,10 @@ export default function CapexDonutChart({ allocation }: { allocation: CapexAlloc
             ))}
           </Pie>
           <ReTooltip
-            contentStyle={{ borderRadius: 12, border: '1px solid #e2e8f2', fontSize: 12 }}
+            contentStyle={{ borderRadius: 12, border: '1px solid rgba(255,255,255,0.1)', background: '#0b1120', fontSize: 12, color: '#e2e8f2' }}
             formatter={(value) => `${value}%`}
           />
-          <Legend wrapperStyle={{ fontSize: 12 }} />
+          <Legend wrapperStyle={{ fontSize: 12, color: '#9fb2cc' }} />
         </PieChart>
       </ResponsiveContainer>
     </div>

@@ -18,7 +18,7 @@ const typeIcon: Record<Evidence['type'], typeof FileText> = {
 function Connector() {
   return (
     <div className="flex justify-center py-1">
-      <ArrowDown className="h-5 w-5 text-navy-300" />
+      <ArrowDown className="h-5 w-5 text-navy-500" />
     </div>
   )
 }
@@ -46,8 +46,8 @@ export default function EvidenceMapSection({ company }: { company: Company }) {
     <div>
       <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
         <div>
-          <h2 className="text-lg font-bold text-navy-900">Evidence Map</h2>
-          <p className="text-sm text-navy-400">Trace how a claim connects to evidence, contradictions, and risk impact.</p>
+          <h2 className="text-lg font-bold text-white">Evidence Trail</h2>
+          <p className="text-sm text-navy-500">Claim → source document → evidence → cross-check → verdict.</p>
         </div>
         <AiTag label="AI Evidence Matching" />
       </div>
@@ -60,8 +60,8 @@ export default function EvidenceMapSection({ company }: { company: Company }) {
             className={cn(
               'rounded-full border px-3.5 py-1.5 text-xs font-semibold transition',
               c.id === selectedClaimId
-                ? 'border-forest-600 bg-forest-600 text-white shadow-soft'
-                : 'border-navy-200 bg-white text-navy-600 hover:border-emerald-300 hover:text-emerald-700'
+                ? 'border-emerald-500 bg-emerald-500 text-navy-950 shadow-soft'
+                : 'border-white/10 bg-navy-900 text-navy-500 hover:border-emerald-500/40 hover:text-emerald-400'
             )}
           >
             {c.code}
@@ -69,12 +69,12 @@ export default function EvidenceMapSection({ company }: { company: Company }) {
         ))}
       </div>
 
-      <Card className="overflow-hidden bg-gradient-to-b from-white to-forest-50/40">
+      <Card className="overflow-hidden bg-gradient-to-b from-navy-900/60 to-navy-950/60">
         <div className="mx-auto flex max-w-2xl flex-col items-center">
           {/* CLAIM */}
           <button
             onClick={() => setViewClaimId(claim.id)}
-            className="w-full rounded-2xl border-2 border-navy-800 bg-navy-900 p-4 text-left text-white shadow-lift transition hover:-translate-y-0.5"
+            className="w-full rounded-2xl border-2 border-emerald-500/40 bg-navy-950 p-4 text-left text-white shadow-glow transition hover:-translate-y-0.5"
           >
             <p className="text-[10px] font-bold uppercase tracking-widest text-emerald-400">Claim &middot; {claim.code}</p>
             <p className="mt-1 text-sm font-semibold leading-snug">&ldquo;{claim.text}&rdquo;</p>
@@ -85,9 +85,9 @@ export default function EvidenceMapSection({ company }: { company: Company }) {
           {/* DOCUMENTS */}
           <div className="grid w-full grid-cols-1 gap-2.5 sm:grid-cols-2">
             {documents.map((doc) => (
-              <div key={doc} className="flex items-center gap-2.5 rounded-xl border border-navy-200 bg-white p-3">
-                <ScrollText className="h-4 w-4 shrink-0 text-navy-400" />
-                <span className="text-xs font-medium text-navy-700">{doc}</span>
+              <div key={doc} className="flex items-center gap-2.5 rounded-xl border border-white/10 bg-navy-900 p-3">
+                <ScrollText className="h-4 w-4 shrink-0 text-navy-500" />
+                <span className="text-xs font-medium text-navy-200">{doc}</span>
               </div>
             ))}
           </div>
@@ -102,18 +102,18 @@ export default function EvidenceMapSection({ company }: { company: Company }) {
                 <button
                   key={ev.id}
                   onClick={() => setOpenEvidenceId(ev.id)}
-                  className="flex items-start gap-2.5 rounded-xl border border-emerald-200 bg-emerald-50/60 p-3 text-left transition hover:-translate-y-0.5 hover:shadow-soft"
+                  className="flex items-start gap-2.5 rounded-xl border border-emerald-500/30 bg-emerald-500/10 p-3 text-left transition hover:-translate-y-0.5 hover:shadow-soft"
                 >
-                  <Icon className="mt-0.5 h-4 w-4 shrink-0 text-emerald-700" />
+                  <Icon className="mt-0.5 h-4 w-4 shrink-0 text-emerald-400" />
                   <div className="min-w-0">
-                    <p className="text-xs font-bold text-emerald-800">EV-{ev.id.split('-').pop()}</p>
-                    <p className="mt-0.5 truncate text-xs text-emerald-900/80">{ev.detectedValue}</p>
+                    <p className="text-xs font-bold text-emerald-300">EV-{ev.id.split('-').pop()}</p>
+                    <p className="mt-0.5 truncate text-xs text-emerald-300/80">{ev.detectedValue}</p>
                   </div>
                 </button>
               )
             })}
             {evidenceItems.length === 0 && (
-              <div className="col-span-2 rounded-xl border border-dashed border-navy-200 p-4 text-center text-xs text-navy-400">
+              <div className="col-span-2 rounded-xl border border-dashed border-white/10 p-4 text-center text-xs text-navy-500">
                 Insufficient evidence to verify this claim.
               </div>
             )}
@@ -127,15 +127,15 @@ export default function EvidenceMapSection({ company }: { company: Company }) {
               <div
                 className={cn(
                   'flex w-full items-center gap-3 rounded-2xl border p-4',
-                  isContradiction ? 'border-red-300 bg-red-50' : 'border-emerald-300 bg-emerald-50'
+                  isContradiction ? 'border-red-500/40 bg-red-500/10' : 'border-emerald-500/40 bg-emerald-500/10'
                 )}
               >
                 {isContradiction ? (
-                  <ShieldAlert className="h-5 w-5 shrink-0 text-red-600" />
+                  <ShieldAlert className="h-5 w-5 shrink-0 text-red-400" />
                 ) : (
-                  <ShieldCheck className="h-5 w-5 shrink-0 text-emerald-600" />
+                  <ShieldCheck className="h-5 w-5 shrink-0 text-emerald-400" />
                 )}
-                <p className={cn('text-sm font-bold', isContradiction ? 'text-red-700' : 'text-emerald-700')}>
+                <p className={cn('text-sm font-bold', isContradiction ? 'text-red-400' : 'text-emerald-400')}>
                   {isContradiction ? 'Contradiction Detected' : 'Evidence Supports Claim'}
                 </p>
               </div>
@@ -143,10 +143,10 @@ export default function EvidenceMapSection({ company }: { company: Company }) {
               <Connector />
 
               {/* RISK SCORE */}
-              <div className="flex w-full items-center gap-3 rounded-2xl border-2 border-navy-900 bg-white p-4">
-                <Gauge className="h-5 w-5 shrink-0 text-navy-700" />
+              <div className="flex w-full items-center gap-3 rounded-2xl border-2 border-white/15 bg-navy-950 p-4">
+                <Gauge className="h-5 w-5 shrink-0 text-navy-200" />
                 <div>
-                  <p className="text-sm font-bold text-navy-900">Risk Score Impact</p>
+                  <p className="text-sm font-bold text-white">Risk Score Impact</p>
                   <p className="text-xs text-navy-500">
                     Weighted <span className="font-semibold uppercase">{claim.riskWeight}</span> contribution to overall {company.riskScore}/100 risk score
                   </p>

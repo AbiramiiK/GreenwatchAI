@@ -32,7 +32,7 @@ export default function Watchlist() {
             <Card key={c.id} hoverable className="relative">
               <button
                 onClick={() => toggle(c.id)}
-                className="absolute right-4 top-4 rounded-lg p-1.5 text-navy-400 hover:bg-navy-50 hover:text-red-600"
+                className="absolute right-4 top-4 rounded-lg p-1.5 text-navy-500 hover:bg-navy-800 hover:text-red-400"
                 aria-label="Remove from watchlist"
                 title="Remove from watchlist"
               >
@@ -40,19 +40,19 @@ export default function Watchlist() {
               </button>
               <div onClick={() => navigate(`/companies/${c.id}`)} className="cursor-pointer">
                 <div className="flex items-center gap-3">
-                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-forest-100 text-sm font-bold text-forest-700">
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-emerald-500/15 text-sm font-bold text-emerald-400">
                     {c.logoInitials}
                   </span>
                   <div className="min-w-0 pr-6">
-                    <p className="truncate font-bold text-navy-900">{c.name}</p>
-                    <p className="text-xs text-navy-400">{c.sector}</p>
+                    <p className="truncate font-bold text-white">{c.name}</p>
+                    <p className="text-xs text-navy-500">{c.sector}</p>
                   </div>
                 </div>
                 <div className="mt-4 flex items-center justify-between">
                   <RiskBadge level={c.riskLevel} />
-                  <span className="text-lg font-extrabold text-navy-900">
+                  <span className="text-lg font-extrabold text-white">
                     {c.riskScore}
-                    <span className="text-xs font-medium text-navy-400">/100</span>
+                    <span className="text-xs font-medium text-navy-500">/100</span>
                   </span>
                 </div>
               </div>
